@@ -1,1 +1,569 @@
+/* ==========================================
+   NEXORA SYSTEMS - MAIN STYLE SYSTEM
+   Nexora Control Center
+========================================== */
 
+
+/* ==========================
+   ROOT VARIABLES
+========================== */
+
+:root {
+    --background: #0b0f14;
+    --background-secondary: #111820;
+    --panel: #151d26;
+    --panel-hover: #1b2632;
+
+    --border: #263341;
+
+    --primary: #00c8ff;
+    --primary-dark: #0099cc;
+
+    --text: #ffffff;
+    --text-secondary: #9da8b3;
+
+    --success: #00e676;
+    --warning: #ffca28;
+    --danger: #ff5252;
+
+    --sidebar-width: 260px;
+
+    --radius: 8px;
+
+    --transition: 0.2s ease;
+}
+
+
+/* ==========================
+   GLOBAL RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        Inter,
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.ncc-container {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar {
+
+    width: var(--sidebar-width);
+
+    background:
+        linear-gradient(
+            180deg,
+            #111820,
+            #0d131a
+        );
+
+    border-right:
+        1px solid var(--border);
+
+    padding: 25px;
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 10;
+
+}
+
+
+.logo {
+
+    margin-bottom: 45px;
+
+}
+
+
+.logo h1 {
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+
+    color: var(--primary);
+
+}
+
+
+.logo p {
+
+    margin-top: 5px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+nav a {
+
+    text-decoration: none;
+
+    color: var(--text-secondary);
+
+    padding: 13px 15px;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    font-size: 15px;
+
+}
+
+
+nav a:hover {
+
+    background: var(--panel-hover);
+
+    color: var(--text);
+
+}
+
+
+nav a.active {
+
+    background: rgba(0,200,255,0.12);
+
+    color: var(--primary);
+
+    border-left:
+        3px solid var(--primary);
+
+}
+
+
+/* ==========================
+   DASHBOARD AREA
+========================== */
+
+.dashboard {
+
+    margin-left: var(--sidebar-width);
+
+    width: calc(100% - var(--sidebar-width));
+
+    padding: 25px;
+
+}
+
+
+/* ==========================
+   TOP BAR
+========================== */
+
+.topbar {
+
+    background:
+        var(--background-secondary);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    padding:
+        22px 25px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.topbar h2 {
+
+    font-size:
+        24px;
+
+}
+
+
+.topbar p {
+
+    color:
+        var(--text-secondary);
+
+    margin-top:
+        5px;
+
+}
+
+
+/* ==========================
+   STATUS DISPLAY
+========================== */
+
+.system-status {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-end;
+
+    gap:
+        6px;
+
+}
+
+
+.system-status strong {
+
+    color:
+        var(--success);
+
+}
+
+
+#system-clock {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        14px;
+
+}
+
+
+/* ==========================
+   PANELS
+========================== */
+
+.panel {
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    padding:
+        20px;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.panel:hover {
+
+    border-color:
+        var(--primary);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.panel h3 {
+
+    font-size:
+        16px;
+
+    margin-bottom:
+        15px;
+
+    color:
+        var(--primary);
+
+}
+
+
+.panel p {
+
+    color:
+        var(--text-secondary);
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.panel strong {
+
+    color:
+        var(--text);
+
+}
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+button {
+
+    background:
+        var(--background-secondary);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        10px 16px;
+
+    border-radius:
+        var(--radius);
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+
+}
+
+
+button:hover {
+
+    background:
+        var(--primary);
+
+    color:
+        #000;
+
+    border-color:
+        var(--primary);
+
+}
+
+
+/* ==========================
+   SERVICE STATUS
+========================== */
+
+.services div {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        10px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.services span {
+
+    color:
+        var(--success);
+
+    font-weight:
+        bold;
+
+}
+
+
+/* ==========================
+   QUICK ACCESS
+========================== */
+
+.quick-access {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+}
+
+
+/* ==========================
+   FOOTER SUPPORT
+========================== */
+
+footer {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+
+    text-align:
+        center;
+
+    padding:
+        20px;
+
+}
+
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+
+@media(max-width:900px) {
+
+
+    .sidebar {
+
+        width:
+            80px;
+
+        padding:
+            15px;
+
+    }
+
+
+    .logo p,
+    nav a {
+
+        font-size:
+            0;
+
+    }
+
+
+    .dashboard {
+
+        margin-left:
+            80px;
+
+        width:
+            calc(100% - 80px);
+
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+
+    .topbar {
+
+        flex-direction:
+            column;
+
+        gap:
+            20px;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .system-status {
+
+        align-items:
+            flex-start;
+
+    }
+
+}
