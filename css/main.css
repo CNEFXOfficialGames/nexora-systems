@@ -1,569 +1,838 @@
 /* ==========================================
    NEXORA SYSTEMS - MAIN STYLE SYSTEM
-   Nexora Control Center
+   Enterprise Control Center Interface
 ========================================== */
 
 
 /* ==========================
-   ROOT VARIABLES
+   VARIABLES
 ========================== */
 
 :root {
-    --background: #0b0f14;
-    --background-secondary: #111820;
-    --panel: #151d26;
-    --panel-hover: #1b2632;
 
-    --border: #263341;
+    --background: #070b10;
+    --background-secondary: #0d141c;
 
-    --primary: #00c8ff;
-    --primary-dark: #0099cc;
+    --sidebar: #0a1017;
+    --panel: #111a24;
+    --panel-hover: #162330;
 
-    --text: #ffffff;
-    --text-secondary: #9da8b3;
+    --border: #223140;
+
+    --primary: #00bfff;
+    --primary-soft: rgba(0,191,255,0.12);
+
+    --text: #f5f7fa;
+    --text-secondary: #8995a3;
 
     --success: #00e676;
-    --warning: #ffca28;
+    --warning: #ffc107;
     --danger: #ff5252;
 
-    --sidebar-width: 260px;
+    --sidebar-width: 270px;
+    --sidebar-collapsed: 75px;
 
-    --radius: 8px;
+    --radius: 10px;
 
-    --transition: 0.2s ease;
+    --transition: .25s ease;
+
 }
 
 
+
 /* ==========================
-   GLOBAL RESET
+   RESET
 ========================== */
 
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
 }
 
 
 body {
-    background: var(--background);
-    color: var(--text);
+
+    background:var(--background);
+
+    color:var(--text);
 
     font-family:
-        "Segoe UI",
-        Inter,
-        Arial,
-        sans-serif;
+    "Segoe UI",
+    Inter,
+    Arial,
+    sans-serif;
 
-    min-height: 100vh;
+    min-height:100vh;
 
-    overflow-x: hidden;
 }
+
+
 
 
 /* ==========================
    SCROLLBAR
 ========================== */
 
+
 ::-webkit-scrollbar {
-    width: 8px;
+
+    width:8px;
+
 }
 
 
 ::-webkit-scrollbar-track {
-    background: var(--background);
+
+    background:
+    var(--background);
+
 }
 
 
 ::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 10px;
+
+    background:
+    var(--border);
+
+    border-radius:20px;
+
 }
 
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
+
+    background:
+    var(--primary);
+
 }
+
+
 
 
 /* ==========================
    MAIN CONTAINER
 ========================== */
 
+
 .ncc-container {
 
-    display: flex;
+    display:flex;
 
-    min-height: 100vh;
+    min-height:100vh;
 
 }
+
+
+
 
 
 /* ==========================
    SIDEBAR
 ========================== */
 
+
 .sidebar {
 
-    width: var(--sidebar-width);
+    width:var(--sidebar-width);
+
+    height:100vh;
+
+    position:fixed;
+
+    left:0;
+    top:0;
 
     background:
-        linear-gradient(
-            180deg,
-            #111820,
-            #0d131a
-        );
+    linear-gradient(
+        180deg,
+        #0c131c,
+        #070b10
+    );
+
 
     border-right:
-        1px solid var(--border);
+    1px solid var(--border);
 
-    padding: 25px;
 
-    position: fixed;
+    padding:25px 18px;
 
-    top: 0;
-    bottom: 0;
-    left: 0;
 
-    z-index: 10;
+    transition:
+    var(--transition);
+
+
+    overflow:hidden;
 
 }
+
+
+
+
+/* COLLAPSED SIDEBAR */
+
+
+.sidebar.collapsed {
+
+    width:
+    var(--sidebar-collapsed);
+
+}
+
+
+
+.sidebar.collapsed .logo h1,
+.sidebar.collapsed .logo p,
+.sidebar.collapsed nav span {
+
+    opacity:0;
+
+}
+
+
+
+
+/* ==========================
+   LOGO
+========================== */
 
 
 .logo {
 
-    margin-bottom: 45px;
+    padding-left:12px;
+
+    margin-bottom:35px;
 
 }
+
 
 
 .logo h1 {
 
-    font-size: 28px;
+    color:
+    var(--primary);
 
-    letter-spacing: 3px;
+    letter-spacing:4px;
 
-    color: var(--primary);
+    font-size:28px;
 
 }
+
 
 
 .logo p {
 
-    margin-top: 5px;
+    color:
+    var(--text-secondary);
 
-    color: var(--text-secondary);
+    font-size:13px;
 
-    font-size: 14px;
+    margin-top:5px;
 
 }
+
+
+
+
+
+/* ==========================
+   SIDEBAR TOGGLE
+========================== */
+
+
+.sidebar-toggle {
+
+    position:absolute;
+
+    right:-14px;
+
+    top:35px;
+
+
+    width:28px;
+
+    height:28px;
+
+
+    border-radius:50%;
+
+
+    background:
+    var(--panel);
+
+
+    border:
+    1px solid var(--border);
+
+
+    color:
+    var(--text);
+
+
+    cursor:pointer;
+
+
+    transition:
+    var(--transition);
+
+}
+
+
+.sidebar-toggle:hover {
+
+    background:
+    var(--primary);
+
+    color:black;
+
+}
+
+
+
 
 
 /* ==========================
    NAVIGATION
 ========================== */
 
+
 nav {
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    gap: 10px;
+    gap:8px;
 
 }
+
 
 
 nav a {
 
-    text-decoration: none;
+    display:flex;
 
-    color: var(--text-secondary);
+    align-items:center;
 
-    padding: 13px 15px;
 
-    border-radius: var(--radius);
+    gap:14px;
 
-    transition: var(--transition);
 
-    font-size: 15px;
+    text-decoration:none;
+
+
+    color:
+    var(--text-secondary);
+
+
+    padding:
+    13px 15px;
+
+
+    border-radius:
+    var(--radius);
+
+
+    transition:
+    var(--transition);
+
 
 }
+
 
 
 nav a:hover {
 
-    background: var(--panel-hover);
 
-    color: var(--text);
+    background:
+    var(--panel-hover);
+
+
+    color:
+    var(--text);
+
 
 }
+
 
 
 nav a.active {
 
-    background: rgba(0,200,255,0.12);
 
-    color: var(--primary);
+    background:
+    var(--primary-soft);
+
+
+    color:
+    var(--primary);
+
 
     border-left:
-        3px solid var(--primary);
+    3px solid var(--primary);
 
 }
+
+
+
 
 
 /* ==========================
    DASHBOARD AREA
 ========================== */
 
+
 .dashboard {
 
-    margin-left: var(--sidebar-width);
+    margin-left:
+    var(--sidebar-width);
 
-    width: calc(100% - var(--sidebar-width));
 
-    padding: 25px;
+    width:
+    calc(100% - var(--sidebar-width));
+
+
+    padding:
+    30px;
+
+
+    transition:
+    var(--transition);
 
 }
+
+
+
+.sidebar.collapsed ~ .dashboard {
+
+    margin-left:
+    var(--sidebar-collapsed);
+
+
+    width:
+    calc(100% - var(--sidebar-collapsed));
+
+}
+
+
+
 
 
 /* ==========================
    TOP BAR
 ========================== */
 
+
 .topbar {
 
+
     background:
-        var(--background-secondary);
+    var(--background-secondary);
+
 
     border:
-        1px solid var(--border);
+    1px solid var(--border);
+
 
     border-radius:
-        var(--radius);
+    var(--radius);
+
 
     padding:
-        22px 25px;
+    22px 28px;
 
-    display:
-        flex;
 
-    justify-content:
-        space-between;
+    display:flex;
 
-    align-items:
-        center;
+    justify-content:space-between;
 
-    margin-bottom:
-        25px;
+    align-items:center;
+
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+
 
 }
+
 
 
 .topbar h2 {
 
-    font-size:
-        24px;
+    font-size:24px;
 
 }
+
 
 
 .topbar p {
 
     color:
-        var(--text-secondary);
+    var(--text-secondary);
 
-    margin-top:
-        5px;
+    margin-top:6px;
 
 }
+
+
 
 
 /* ==========================
-   STATUS DISPLAY
+   STATUS AREA
 ========================== */
+
 
 .system-status {
 
-    display:
-        flex;
 
-    flex-direction:
-        column;
+    display:flex;
 
-    align-items:
-        flex-end;
+    flex-direction:column;
 
-    gap:
-        6px;
+    align-items:flex-end;
+
+    gap:8px;
+
 
 }
+
 
 
 .system-status strong {
 
+
     color:
-        var(--success);
+    var(--success);
+
 
 }
+
 
 
 #system-clock {
 
-    color:
-        var(--text-secondary);
 
-    font-size:
-        14px;
+    color:
+    var(--text-secondary);
+
+    font-size:14px;
+
 
 }
+
+
+
 
 
 /* ==========================
    PANELS
 ========================== */
 
+
 .panel {
 
+
     background:
-        var(--panel);
+    var(--panel);
+
 
     border:
-        1px solid var(--border);
+    1px solid var(--border);
+
 
     border-radius:
-        var(--radius);
+    var(--radius);
+
 
     padding:
-        20px;
+    22px;
+
 
     transition:
-        var(--transition);
+    var(--transition);
+
 
 }
+
 
 
 .panel:hover {
 
-    border-color:
-        var(--primary);
 
-    transform:
-        translateY(-2px);
+    background:
+    var(--panel-hover);
+
+
+    border-color:
+    rgba(0,191,255,.5);
+
 
 }
+
+
+
 
 
 .panel h3 {
 
-    font-size:
-        16px;
-
-    margin-bottom:
-        15px;
 
     color:
-        var(--primary);
+    var(--primary);
+
+
+    font-size:
+    15px;
+
+
+    text-transform:
+    uppercase;
+
+
+    letter-spacing:
+    1px;
+
+
+    margin-bottom:
+    18px;
+
 
 }
+
 
 
 .panel p {
 
+
     color:
-        var(--text-secondary);
+    var(--text-secondary);
+
 
     margin-bottom:
-        10px;
+    12px;
+
 
 }
 
 
-.panel strong {
 
-    color:
-        var(--text);
-
-}
 
 
 /* ==========================
    BUTTONS
 ========================== */
 
+
 button {
 
+
     background:
-        var(--background-secondary);
+    transparent;
+
 
     color:
-        var(--text);
+    var(--text);
+
 
     border:
-        1px solid var(--border);
+    1px solid var(--border);
+
 
     padding:
-        10px 16px;
+    11px 18px;
+
 
     border-radius:
-        var(--radius);
+    7px;
 
-    cursor:
-        pointer;
+
+    cursor:pointer;
+
 
     transition:
-        var(--transition);
+    var(--transition);
+
 
 }
+
 
 
 button:hover {
 
-    background:
-        var(--primary);
-
-    color:
-        #000;
 
     border-color:
-        var(--primary);
+    var(--primary);
+
+
+    color:
+    var(--primary);
+
 
 }
+
+
+
 
 
 /* ==========================
-   SERVICE STATUS
+   SERVICE LIST
 ========================== */
+
 
 .services div {
 
-    display:
-        flex;
 
-    justify-content:
-        space-between;
+    display:flex;
+
+    justify-content:space-between;
+
 
     padding:
-        10px 0;
+    12px 0;
+
 
     border-bottom:
-        1px solid var(--border);
+    1px solid var(--border);
+
 
 }
+
 
 
 .services span {
 
-    color:
-        var(--success);
 
-    font-weight:
-        bold;
+    color:
+    var(--success);
+
+
+    font-weight:bold;
+
 
 }
+
+
+
 
 
 /* ==========================
    QUICK ACCESS
 ========================== */
 
+
 .quick-access {
 
-    display:
-        flex;
 
-    flex-direction:
-        column;
+    display:grid;
 
-    gap:
-        10px;
+
+    gap:12px;
+
 
 }
 
 
+
+
+
 /* ==========================
-   FOOTER SUPPORT
+   FOOTER
 ========================== */
+
 
 footer {
 
+
     color:
-        var(--text-secondary);
+    var(--text-secondary);
+
 
     font-size:
-        13px;
+    13px;
 
-    text-align:
-        center;
 
-    padding:
-        20px;
+    text-align:center;
+
+
+    padding:25px;
+
 
 }
+
+
+
 
 
 /* ==========================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ========================== */
 
-@media(max-width:900px) {
+
+@media(max-width:900px){
 
 
-    .sidebar {
+.sidebar {
 
-        width:
-            80px;
-
-        padding:
-            15px;
-
-    }
-
-
-    .logo p,
-    nav a {
-
-        font-size:
-            0;
-
-    }
-
-
-    .dashboard {
-
-        margin-left:
-            80px;
-
-        width:
-            calc(100% - 80px);
-
-    }
+    width:
+    var(--sidebar-collapsed);
 
 }
 
 
-@media(max-width:600px) {
+.dashboard {
 
 
-    .topbar {
-
-        flex-direction:
-            column;
-
-        gap:
-            20px;
-
-        align-items:
-            flex-start;
-
-    }
+    margin-left:
+    var(--sidebar-collapsed);
 
 
-    .system-status {
+    width:
+    calc(100% - var(--sidebar-collapsed));
 
-        align-items:
-            flex-start;
+}
 
-    }
+
+.logo h1 {
+
+    font-size:20px;
+
+}
+
+
+
+nav a span {
+
+    display:none;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.topbar {
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+
+.system-status {
+
+    align-items:flex-start;
+
+}
+
 
 }
