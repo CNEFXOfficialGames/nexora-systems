@@ -1,199 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nexora Control Center</title>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/dashboard.css">
+
 </head>
+
 
 <body>
 
-    <div class="ncc-container">
 
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
+<div class="ncc-container">
 
-            <div class="logo">
-                <h1>NEXORA</h1>
-                <p>Control Center</p>
+
+
+    <!-- ==========================
+         SIDEBAR
+    =========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <
+        </button>
+
+
+        <div class="logo">
+
+            <h1>NEXORA</h1>
+
+            <p>
+                Control Center
+            </p>
+
+        </div>
+
+
+
+        <nav>
+
+
+            <a href="index.html" class="active">
+                <span>
+                    Dashboard
+                </span>
+            </a>
+
+
+            <a href="pages/servers.html">
+                <span>
+                    Servers
+                </span>
+            </a>
+
+
+            <a href="pages/network.html">
+                <span>
+                    Network
+                </span>
+            </a>
+
+
+            <a href="pages/security.html">
+                <span>
+                    Security
+                </span>
+            </a>
+
+
+            <a href="pages/cloud.html">
+                <span>
+                    Cloud
+                </span>
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+
+
+    <!-- ==========================
+         MAIN DASHBOARD
+    =========================== -->
+
+
+    <main class="dashboard">
+
+
+
+
+
+        <!-- TOP SYSTEM BAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+
+                <h2>
+                    Nexora Control Center
+                </h2>
+
+
+                <p>
+                    Enterprise System Monitoring Interface
+                </p>
+
+
             </div>
 
-            <nav>
-                <a href="index.html">Dashboard</a>
-                <a href="pages/servers.html">Servers</a>
-                <a href="pages/network.html">Network</a>
-                <a href="pages/security.html">Security</a>
-                <a href="pages/cloud.html">Cloud</a>
-            </nav>
-
-        </aside>
 
 
-        <!-- Main Dashboard -->
-        <main class="dashboard">
+
+            <div class="system-status">
 
 
-            <!-- Top Bar -->
-            <header class="topbar">
+                <span>
+                    System Status
+                </span>
+
+
+                <strong>
+                    ● ONLINE
+                </strong>
+
+
+                <span id="system-clock">
+                    Loading time...
+                </span>
+
+
+
+            </div>
+
+
+
+        </header>
+
+
+
+
+
+
+
+        <!-- DASHBOARD CONTENT -->
+
+
+        <section class="dashboard-grid">
+
+
+
+
+
+            <!-- SYSTEM OVERVIEW -->
+
+
+            <div class="panel overview">
+
+
+                <h3>
+                    System Overview
+                </h3>
+
+
+                <p>
+                    Status:
+                    <strong>
+                        Operational
+                    </strong>
+                </p>
+
+
+                <p>
+                    Version:
+                    NCC 4.8.2
+                </p>
+
+
+                <p>
+                    Access:
+                    Standard User
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- PERFORMANCE -->
+
+
+            <div class="panel performance">
+
+
+                <h3>
+                    Performance
+                </h3>
+
+
+                <p>
+                    CPU Usage:
+                    34%
+                </p>
+
+
+                <p>
+                    Memory Usage:
+                    58%
+                </p>
+
+
+                <p>
+                    Response Time:
+                    21ms
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- SECURITY -->
+
+
+            <div class="panel security">
+
+
+                <h3>
+                    Security Status
+                </h3>
+
+
+                <p>
+                    Firewall:
+                    ACTIVE
+                </p>
+
+
+                <p>
+                    Threat Level:
+                    LOW
+                </p>
+
+
+                <p>
+                    Protection:
+                    Enabled
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- SERVICES -->
+
+
+            <div class="panel services">
+
+
+                <h3>
+                    Service Monitoring
+                </h3>
+
+
 
                 <div>
-                    <h2>Nexora Control Center</h2>
-                    <p>Enterprise System Monitoring Interface</p>
-                </div>
 
-                <div class="system-status">
-                    <span>Status:</span>
-                    <strong>ONLINE</strong>
+                    Database
 
-                    <span id="system-clock">
-                        Loading time...
+                    <span>
+                        ONLINE
                     </span>
-                </div>
-
-            </header>
-
-
-
-            <!-- Dashboard Grid -->
-            <section class="dashboard-grid">
-
-
-                <!-- System Overview -->
-                <div class="panel overview">
-
-                    <h3>System Overview</h3>
-
-                    <p>Status:
-                        <strong>Operational</strong>
-                    </p>
-
-                    <p>
-                        Version:
-                        NCC 4.8.2
-                    </p>
-
-                    <p>
-                        Access:
-                        Standard
-                    </p>
 
                 </div>
 
 
 
-                <!-- Performance -->
-                <div class="panel performance">
+                <div>
 
-                    <h3>Performance</h3>
+                    API Gateway
 
-                    <p>CPU Usage: 34%</p>
-                    <p>Memory Usage: 58%</p>
-                    <p>Response Time: 21ms</p>
-
-                </div>
-
-
-
-                <!-- Security -->
-                <div class="panel security">
-
-                    <h3>Security Status</h3>
-
-                    <p>
-                        Firewall:
-                        ACTIVE
-                    </p>
-
-                    <p>
-                        Threat Level:
-                        LOW
-                    </p>
-
-                    <p>
-                        Protection:
-                        Enabled
-                    </p>
+                    <span>
+                        ONLINE
+                    </span>
 
                 </div>
 
 
 
-                <!-- Services -->
-                <div class="panel services">
+                <div>
 
-                    <h3>Service Monitoring</h3>
+                    Cloud Services
 
-                    <div>
-                        Database
-                        <span>ONLINE</span>
-                    </div>
-
-                    <div>
-                        API Gateway
-                        <span>ONLINE</span>
-                    </div>
-
-                    <div>
-                        Cloud Services
-                        <span>ONLINE</span>
-                    </div>
+                    <span>
+                        ONLINE
+                    </span>
 
                 </div>
 
 
 
-                <!-- Quick Access -->
-                <div class="panel quick-access">
-
-                    <h3>Quick Access</h3>
-
-                    <button onclick="location.href='pages/servers.html'">
-                        Servers
-                    </button>
-
-                    <button onclick="location.href='pages/network.html'">
-                        Network
-                    </button>
-
-                    <button onclick="location.href='pages/security.html'">
-                        Security
-                    </button>
-
-                    <button onclick="location.href='pages/cloud.html'">
-                        Cloud
-                    </button>
-
-                </div>
+            </div>
 
 
 
-                <!-- System Information -->
-                <div class="panel information">
-
-                    <h3>System Information</h3>
-
-                    <p>Environment: Production</p>
-                    <p>Region: Global Infrastructure</p>
-                    <p>Deployment: Stable</p>
-
-                </div>
 
 
-            </section>
 
 
-        </main>
 
-    </div>
+            <!-- QUICK ACCESS -->
 
 
-    <!-- Future Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/dashboard.js"></script>
+            <div class="panel quick-access">
+
+
+                <h3>
+                    Quick Access
+                </h3>
+
+
+
+                <button onclick="location.href='pages/servers.html'">
+                    Servers
+                </button>
+
+
+                <button onclick="location.href='pages/network.html'">
+                    Network
+                </button>
+
+
+                <button onclick="location.href='pages/security.html'">
+                    Security
+                </button>
+
+
+                <button onclick="location.href='pages/cloud.html'">
+                    Cloud
+                </button>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- SYSTEM INFORMATION -->
+
+
+            <div class="panel information">
+
+
+                <h3>
+                    System Information
+                </h3>
+
+
+                <p>
+                    Environment:
+                    Production
+                </p>
+
+
+                <p>
+                    Region:
+                    Global Infrastructure
+                </p>
+
+
+                <p>
+                    Deployment:
+                    Stable
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+
+
+</div>
+
+
+
+
+
+<!-- SCRIPTS -->
+
+
+<script src="js/main.js"></script>
+
+<script src="js/clock.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
 
 </body>
+
 </html>
