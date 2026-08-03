@@ -4,65 +4,66 @@
 ========================================== */
 
 
-/* ==========================
-   WAIT FOR PAGE LOAD
-========================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
 
-
-    /* ==========================
-       SIDEBAR CONTROL
-    ========================== */
-
-
     const sidebar = document.getElementById("sidebar");
-
-    const toggleButton =
-        document.getElementById("sidebar-toggle");
+    const toggleButton = document.getElementById("sidebar-toggle");
 
 
-
-    // Stop if sidebar does not exist
+    // Prevent errors on pages without sidebar
     if (!sidebar || !toggleButton) {
         return;
     }
 
 
 
+    /*
+        Update button appearance
+    */
 
-    /* ==========================
-       LOAD SAVED STATE
-    ========================== */
+    function updateToggleButton() {
 
+        if (sidebar.classList.contains("collapsed")) {
 
-    const savedState =
-        localStorage.getItem(
-            "nexora-sidebar"
-        );
+            toggleButton.textContent = ">";
 
+        } else {
 
+            toggleButton.textContent = "<";
 
-    if (savedState === "collapsed") {
-
-        sidebar.classList.add(
-            "collapsed"
-        );
-
-        toggleButton.textContent = ">";
+        }
 
     }
 
 
 
 
+    /*
+        Load saved sidebar setting
+    */
+
+    const savedState = localStorage.getItem(
+        "nexora-sidebar-state"
+    );
 
 
-    /* ==========================
-       TOGGLE SIDEBAR
-    ========================== */
+    if (savedState === "collapsed") {
 
+        sidebar.classList.add("collapsed");
+
+    }
+
+
+    updateToggleButton();
+
+
+
+
+
+    /*
+        Sidebar toggle button
+    */
 
     toggleButton.addEventListener(
         "click",
@@ -74,39 +75,23 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-
-            const isCollapsed =
+            const collapsed =
                 sidebar.classList.contains(
                     "collapsed"
                 );
 
 
 
-            if (isCollapsed) {
+            localStorage.setItem(
+                "nexora-sidebar-state",
+                collapsed
+                    ? "collapsed"
+                    : "expanded"
+            );
 
 
-                toggleButton.textContent = ">";
 
-
-                localStorage.setItem(
-                    "nexora-sidebar",
-                    "collapsed"
-                );
-
-
-            } else {
-
-
-                toggleButton.textContent = "<";
-
-
-                localStorage.setItem(
-                    "nexora-sidebar",
-                    "expanded"
-                );
-
-
-            }
+            updateToggleButton();
 
 
         }
@@ -116,12 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /* ==========================
-       KEYBOARD SHORTCUT
-       CTRL + B
-       Toggle Sidebar
-    ========================== */
-
+    /*
+        Keyboard shortcut
+        CTRL + B
+    */
 
     document.addEventListener(
         "keydown",
